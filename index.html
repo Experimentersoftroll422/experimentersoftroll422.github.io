@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your Name | Portfolio</title>
+<title>Rizwan Anver | Portfolio</title>
 <meta name="description" content="Labs, scripts, slides and writing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,9 +114,9 @@ nav.show{display:block}nav ul{flex-direction:column}
     <a class="brand" href="#top" id="brand"></a>
     <nav id="nav" aria-label="Main">
       <ul>
-        <li><button class="dd" aria-expanded="false" aria-haspopup="true">Work</button>
+        <li><button class="dd" aria-expanded="false" aria-haspopup="true">Projects</button>
           <div class="menu" id="workMenu"></div></li>
-        <li><a href="#blog">Blog</a></li>
+        <li><a href="#blog">Rants</a></li>
         <li><a href="#about">About</a></li>
         <li><button class="dd" aria-expanded="false" aria-haspopup="true">Links</button>
           <div class="menu" id="linkMenu"></div></li>
@@ -134,8 +134,8 @@ nav.show{display:block}nav ul{flex-direction:column}
       <h1 id="hName"></h1>
       <p id="hTag"></p>
       <div class="btns">
-        <a class="btn main" href="#work">Browse my work</a>
-        <a class="btn" href="#blog">Read the blog</a>
+        <a class="btn main" href="#work">Browse my most recent work</a>
+        <a class="btn" href="#blog">Read my rants</a>
       </div>
     </div>
     <svg class="topo" viewBox="0 0 420 240" aria-hidden="true">
@@ -148,14 +148,14 @@ nav.show{display:block}nav ul{flex-direction:column}
   </div>
 
   <section id="work"><div class="wrap">
-    <div class="sec-h"><h2>Work</h2>
+    <div class="sec-h"><h2>Projects</h2>
       <div class="tools"><div id="chips" class="tools"></div><input id="q" type="search" placeholder="Search files" aria-label="Search files"></div>
     </div>
     <div class="list" id="list"></div>
   </div></section>
 
   <section id="blog"><div class="wrap">
-    <div class="sec-h"><h2>Blog</h2></div>
+    <div class="sec-h"><h2>Rants</h2></div>
     <div id="posts"></div>
   </div></section>
 
@@ -166,7 +166,7 @@ nav.show{display:block}nav ul{flex-direction:column}
 
   <section id="contact"><div class="wrap">
     <h2 style="margin-bottom:14px">Contact</h2>
-    <p style="color:var(--mute);margin:0 0 16px">Want to talk about a project or a role? Email is the quickest way.</p>
+    <p style="color:var(--mute);margin:0 0 16px">Wanna grab my attention or stalk?.</p>
     <div class="btns" id="contactBtns"></div>
   </div></section>
 </main>
@@ -181,16 +181,16 @@ nav.show{display:block}nav ul{flex-direction:column}
 <script>
 /* ============ EDIT THIS SECTION ============ */
 const CONFIG = {
-  name: "Your Name",
+  name: "Rizwan",
   tagline: "Network and systems projects: labs, scripts, slide decks and write-ups, all in one place.",
   about: [
-    "Write two or three short paragraphs here: what you study or do, what you enjoy building, and what you want to do next.",
-    "Everything on this site is something I built or wrote. Open any script to read it, or download the lab files to run them yourself."
+    "Hey, I'm Rizwan. This entire site is dedicated for showcasing whatever I'm up to. I'm on a quest to land in CyberSecurity"
+    "Free feel to browse or shoot me a message if you're ever curious about anything!"
   ],
-  skills: ["Cisco Packet Tracer","Routing & Switching","VLANs","Python","Bash","PowerShell","Linux","Git"],
-  email: "you@example.com",
+  skills: ["Networking","C++", "MySQL","Routing & Switching","VLANs","ACLS","Python","PowerShell","Windows", "Active Directory" "Linux","DevOps"],
+  email: "rizwananver07@gmail.com",
   links: [
-    { label: "GitHub",   url: "https://github.com/yourname" },
+    { label: "GitHub",   url: "https://github.com/rizwan-cst" },
     { label: "LinkedIn", url: "https://linkedin.com/in/yourname" },
     { label: "Resume (PDF)", url: "files/docs/resume.pdf" }
   ]
@@ -206,9 +206,10 @@ const ITEMS = [
 
 /* body is HTML. Add as many posts as you like, newest first. */
 const POSTS = [
-  { title:"What I learned building my first VLAN lab", date:"2026-09-05",
-    summary:"Mistakes, fixes and the commands I now double check.",
-    body:"<p>Replace this with your post. You can use any HTML here: paragraphs, lists, <code>code</code>, images (<code>&lt;img src='files/img/topology.png'&gt;</code>) and links to your files.</p>" }
+  { title:"Fostering Positive Communication", date:"2026-05-14",
+    summary:"What does it mean to Foster Positive Communicaton",
+    body:"<p>Replace this with your 
+post. You can use any HTML here: paragraphs, lists, <code>code</code>, images (<code>&lt;img src='files/img/topology.png'&gt;</code>) and links to your files.</p>" }
 ];
 /* ============ END EDIT SECTION ============ */
 
