@@ -1,0 +1,92 @@
+[
+  {
+    "ProjectID": 6,
+    "ProjectName": "Arctic Fuel Depot Project",
+    "ProjectStart": "2026-05-05",
+    "ProjectEnd": "2028-07-30",
+    "ProjectBudget": 90000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 13
+  },
+  {
+    "ProjectID": 7,
+    "ProjectName": "Coastal Marine Terminal Upgrade",
+    "ProjectStart": "2026-05-10",
+    "ProjectEnd": "2028-12-20",
+    "ProjectBudget": 68000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 7
+  },
+  {
+    "ProjectID": 8,
+    "ProjectName": "Bitumen Rail Loading Facility",
+    "ProjectStart": "2027-01-01",
+    "ProjectEnd": "2029-05-30",
+    "ProjectBudget": 54000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 2
+  },
+  {
+    "ProjectID": 9,
+    "ProjectName": "Saskatchewan Refinery Expansion",
+    "ProjectStart": "2026-09-15",
+    "ProjectEnd": "2030-08-01",
+    "ProjectBudget": 160000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 3
+  },
+  {
+    "ProjectID": 10,
+    "ProjectName": "Atlantic Crude Offloading Dock",
+    "ProjectStart": "2027-04-01",
+    "ProjectEnd": "2029-03-10",
+    "ProjectBudget": 30000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 7
+  },
+  {
+    "ProjectID": 11,
+    "ProjectName": "Northern Logistics Hub",
+    "ProjectStart": "2026-11-01",
+    "ProjectEnd": "2029-12-31",
+    "ProjectBudget": 75000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 11
+  },
+  {
+    "ProjectID": 12,
+    "ProjectName": "Oil Sands Processing Line 4",
+    "ProjectStart": "2027-06-12",
+    "ProjectEnd": "2031-11-15",
+    "ProjectBudget": 210000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 2
+  },
+  {
+    "ProjectID": 13,
+    "ProjectName": "Trans-Prairie Fuel Corridor",
+    "ProjectStart": "2026-08-20",
+    "ProjectEnd": "2030-06-30",
+    "ProjectBudget": 180000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 4
+  },
+  {
+    "ProjectID": 14,
+    "ProjectName": "Maritime Refinery Decommission",
+    "ProjectStart": "2027-03-01",
+    "ProjectEnd": "2028-12-01",
+    "ProjectBudget": 26000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 10
+  },
+  {
+    "ProjectID": 15,
+    "ProjectName": "Quebec Petrochemical Connector",
+    "ProjectStart": "2028-06-15",
+    "ProjectEnd": "2031-09-30",
+    "ProjectBudget": 82000000,
+    "ProjectStatus": "Pending Approval",
+    "ProvinceID": 6
+  }
+]

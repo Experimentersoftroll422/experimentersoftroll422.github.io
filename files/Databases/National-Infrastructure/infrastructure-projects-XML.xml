@@ -1,0 +1,53 @@
+New text for project XML: 
+
+<Projects>
+  <Project>
+    <ProjectID>1</ProjectID>
+    <ProjectName>Northern Refinary Upgrade</ProjectName>
+    <ProjectStart>2023-01-15</ProjectStart>
+    <ProjectEnd>2025-09-30</ProjectEnd>
+    <ProjectBudget>45000000</ProjectBudget>
+    <ProjectStatus>Operational</ProjectStatus>
+    <ProvinceID>2</ProvinceID>
+  </Project>
+
+  <Project>
+    <ProjectID>2</ProjectID>
+    <ProjectName>Alberta Pipeline Loop</ProjectName>
+    <ProjectStart>2022-06-10</ProjectStart>
+    <ProjectEnd>2025-02-28</ProjectEnd>
+    <ProjectBudget>120000000</ProjectBudget>
+    <ProjectStatus>Operational</ProjectStatus>
+    <ProvinceID>2</ProvinceID>
+  </Project>
+
+  <Project>
+    <ProjectID>3</ProjectID>
+    <ProjectName>East Coast Tank Expansion</ProjectName>
+    <ProjectStart>2023-03-01</ProjectStart>
+    <ProjectEnd>2024-12-15</ProjectEnd>
+    <ProjectBudget>38000000</ProjectBudget>
+    <ProjectStatus>Completed</ProjectStatus>
+    <ProvinceID>10</ProvinceID>
+  </Project>
+
+  <Project>
+    <ProjectID>4</ProjectID>
+    <ProjectName>Prairie Crude Storage Build</ProjectName>
+    <ProjectStart>2021-09-15</ProjectStart>
+    <ProjectEnd>2023-11-01</ProjectEnd>
+    <ProjectBudget>22000000</ProjectBudget>
+    <ProjectStatus>Completed</ProjectStatus>
+    <ProvinceID>3</ProvinceID>
+  </Project>
+
+  <Project>
+    <ProjectID>5</ProjectID>
+    <ProjectName>Western Refinery Turnaround</ProjectName>
+    <ProjectStart>2024-04-01</ProjectStart>
+    <ProjectEnd>2024-10-15</ProjectEnd>
+    <ProjectBudget>15000000</ProjectBudget>
+    <ProjectStatus>Operational</ProjectStatus>
+    <ProvinceID>1</ProvinceID>
+  </Project>
+</Projects>
